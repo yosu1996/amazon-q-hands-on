@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シーマインスイーパー - 海の冒険</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>シーマインスイーパー - 海の冒険</h1>
+        
+        <div class="game-controls">
+            <div class="difficulty-selector">
+                <button id="beginner" class="difficulty-btn active">初級 (9x9, 地雷10個)</button>
+                <button id="intermediate" class="difficulty-btn">中級 (16x16, 地雷40個)</button>
+                <button id="expert" class="difficulty-btn">上級 (16x30, 地雷99個)</button>
+                <button id="custom" class="difficulty-btn">カスタム</button>
+            </div>
+            
+            <div id="custom-settings" class="custom-settings hidden">
+                <div class="custom-input">
+                    <label for="custom-width">幅:</label>
+                    <input type="number" id="custom-width" min="5" max="50" value="10">
+                </div>
+                <div class="custom-input">
+                    <label for="custom-height">高さ:</label>
+                    <input type="number" id="custom-height" min="5" max="50" value="10">
+                </div>
+                <div class="custom-input">
+                    <label for="custom-mines">地雷数:</label>
+                    <input type="number" id="custom-mines" min="1" max="2500" value="10">
+                </div>
+            </div>
+            
+            <button id="new-game-btn">新しいゲーム</button>
+        </div>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <span>残りの地雷: </span>
+                <span id="mines-left">10</span>
+            </div>
+            <div class="info-item">
+                <span>経過時間: </span>
+                <span id="timer">0</span>
+            </div>
+            <div class="info-item">
+                <span id="game-status"></span>
+            </div>
+        </div>
+        
+        <div class="game-board-container">
+            <div id="game-board"></div>
+            <div id="tooltip" class="tooltip hidden"></div>
+        </div>
+        
+        <div class="instructions">
+            <h3>操作方法</h3>
+            <ul>
+                <li>ゲーム開始: 左クリックでスタート位置を選択</li>
+                <li>移動: ↑↓←→キーで船を移動</li>
+                <li>斜め移動: 左右キーと上下キーの同時押し</li>
+                <li>ジャンプ: スペースキー + ↑↓←→キーで1マス先にジャンプ</li>
+                <li>フラグ設置: Ctrl + 左クリック (Macの場合は Command + 左クリック)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
